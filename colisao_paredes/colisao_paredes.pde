@@ -23,16 +23,21 @@ void draw() {
       clear();
       update(elapsedTimeUp);
       circle(x, y, value);
-    } else if (key == UP) {
-      float elapsedTimeSpeed = (millis() - startTime) / 1000.0f;
-      startTime = millis();
-      clear();
-      updateSpeed(elapsedTimeSpeed);
-      circle(x, y, value);
-    }
+    } 
+    
   } else {
     circle(x, y, value);
   }
+  
+  if( key == CODED){
+    if( keyCode == UP){
+      float elapsedSpeed = (millis() - startTime) * 1000.0f;
+      startTime = millis();
+      clear();
+      update(elapsedSpeed);
+      circle(x, y, value);
+  }
+}
 }
 
 void updateUp(float elapsedTimeUp) {
